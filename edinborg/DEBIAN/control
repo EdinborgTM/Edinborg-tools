@@ -1,0 +1,6 @@
+Package: edinborg
+Version: 4.0.0
+Architecture: all
+Maintainer: EdinborgTM <edinborgtm@example.com>
+Description: A collection of security tools
+Depends: bash, curl, git
