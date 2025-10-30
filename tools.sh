@@ -1,232 +1,318 @@
-clear
-mkdir Tools
-clear 
-echo -e '\033[32;40;1m 
- ----------------------------------
-       ----edinborgTM----
-----------------------------------v4
-       EdinborgTM
-  Coded by edinborgTM
-  github: https://github.com/edinborgTM
-\033[33;1mVersion:\033[0m 4            \033[33;1mCTRL+C:\033[0m exit          \033[33;1mAuthor:\033[0m edinborgTM
+#!/bin/bash
+# --------------------------------------------------------------
+#  EdinborgTM Pro v5.0 – Binary Intro + Clean Menu
+# --------------------------------------------------------------
 
-\033[37;1m[1]\033[32;1m AUTO-IP-CHANGER              \033[37;1m[2]\033[32;1m RED_HAWK
-\033[37;1m[3]\033[32;1m Phishing Tool                \033[37;1m[4]\033[32;1m HackerPro
-\033[37;1m[5]\033[32;1m Ip Info                      \033[37;1m[6]\033[32;1m WebCam Hack
-\033[37;1m[7]\033[32;1m DDOS Attack                  \033[37;1m[8]\033[32;1m VirusCrafter
-\033[37;1m[9]\033[32;1m BadMod                       \033[37;1m[10]\033[32;1m Info-Site
-\033[37;1m[11]\033[32;1m Gmail Bomber                 \033[37;1m[12]\033[32;1m dorks-eye
-\033[37;1m[13]\033[32;1m Subscan                      \033[37;1m[14]\033[32;1m DARKARMY
-\033[37;1m[15]\033[32;1m Facebash                     \033[37;1m[16]\033[32;1m Requirements & Update
-\033[37;1m[17]\033[32;1m Uninstall Tools              \033[37;1m[18]\033[32;1m How to Use?
-\033[0m'
+RED='\033[31;1m'
+GREEN='\033[32;1m'
+YELLOW='\033[33;1m'
+BLUE='\033[34;1m'
+MAGENTA='\033[35;1m'
+CYAN='\033[36;1m'
+WHITE='\033[37;1m'
+GRAY='\033[90m'
+NC='\033[0m'
 
-# Select Option
-read -p $'\033[32;1mEnter option number: \033[0m' islem
-if [[ $islem == 1 || $islem == 01 ]]; then
-clear
-echo -e "\033[32;40;1m Installing AUTO-IP-CHANGER...\033[0m"
-sleep 3
-cd Tools
-sudo apt-get install tor
-pip3 install requests
-git clone https://github.com/FDX100/Auto_Tor_IP_changer.git
-cd Auto_Tor_IP_changer
-echo -e "\033[32;40;1m Go to your browser and set the proxy (socks proxy) to 127.0.0.1:9050\033[0m"
-sleep 8
-python3 install.py
-aut
+# تبدیل متن به باینری (8 بیتی)
+text_to_binary() {
+    local text="$1"
+    local binary=""
+    for (( i=0; i<${#text}; i++ )); do
+        char="${text:$i:1}"
+        ascii=$(printf '%d' "'$char")
+        bin=$(echo "obase=2; $ascii" | bc)
+        binary+=$(printf '%08d ' "$bin")
+    done
+    echo "$binary"
+}
 
-elif [[ $islem == 2 || $islem == 02 ]]; then
-clear
-echo -e "\033[32;40;1m Installing RED_HAWK...\033[0m"
-sleep 3
-cd Tools
-git clone https://github.com/Tuhinshubhra/RED_HAWK
-cd RED_HAWK
-php rhawk.php
-
-elif [[ $islem == 3 || $islem == 03 ]]; then
-clear
-echo -e "\033[32;40;1m Installing Phishing Tool...\033[0m"
-sleep 3
-cd Tools
-git clone https://github.com/htr-tech/zphisher
-cd zphisher
-bash zphisher.sh
-
-elif [[ $islem == 4 || $islem == 04 ]]; then
-clear
-echo -e "\033[32;40;1m Installing HackerPro...\033[0m"
-sleep 3
-cd Tools
-apt update && apt upgrade && apt install git && apt install python2
-git clone https://github.com/jaykali/hackerpro.git
-cd hackerpro
-sudo bash install.sh
-python2 hackerpro.py
-
-elif [[ $islem == 5 || $islem == 05 ]]; then
-clear
-echo -e "\033[32;40;1m Installing Ip Info...\033[0m"
-sleep 3
-cd Tools
-apt update
-apt install git curl
-git clone https://github.com/htr-tech/track-ip.git
-cd track-ip
-bash trackip
-
-elif [[ $islem == 6 || $islem == 06 ]]; then
-clear
-echo -e "\033[32;40;1m Installing WebCam Hack...\033[0m"
-sleep 3
-cd Tools
-git clone https://github.com/techchipnet/CamPhish
-cd CamPhish
-bash camphish.sh
-
-elif [[ $islem == 7 || $islem == 07 ]]; then
-clear
-echo -e "\033[32;40;1m Installing DDOS Attack...\033[0m"
-sleep 3
-cd Tools
-git clone https://github.com/palahsu/DDoS-Ripper.git
-cd DDoS-Ripper
-python3 DRipper.py
-echo ""
-echo -e "\033[32;40;1m Hide your IP before using this tool\033[0m"
-
-elif [[ $islem == 8 || $islem == 08 ]]; then
-clear
-echo -e "\033[32;40;1m Installing VirusCrafter...\033[0m"
-sleep 3
-cd Tools
-git clone https://github.com/Devil-Tigers/TigerVirus
-apt update
-apt upgrade -y
-pkg install git -y
-cd TigerVirus
-bash app.sh
-
-elif [[ $islem == 9 || $islem == 09 ]]; then
-clear
-echo -e "\033[32;40;1m Installing BadMod...\033[0m"
-sleep 3
-cd Tools
-sudo apt-get update
-sudo apt-get install php
-sudo apt-get install php-curl
-git clone https://github.com/MrSqar-Ye/BadMod.git
-cd BadMod
-chmod u+x INSTALL
-chmod u+x BadMod.php
-sudo php BadMod.php
-
-elif [[ $islem == 10 || $islem == 010 ]]; then
-clear
-echo -e "\033[32;40;1m Installing Info-Site...\033[0m"
-sleep 3
-cd Tools
-pkg install curl -y
-upgrade -y
-pkg install git -y
-git clone https://github.com/king-hacking/info-site.git
-cd info-site
-bash info.sh
-
-elif [[ $islem == 11 || $islem == 011 ]]; then
-clear
-echo -e "\033[32;40;1m Installing Gmail Bomber...\033[0m"
-sleep 3
-cd Tools
-git clone https://github.com/juzeon/fast-mail-bomber.git
-cd fast-mail-bomber/
-mv config.example.php config.php
-php index.php update-providers
-rm -rf data/nodes.json data/dead_providers.json
-echo -e "\033[32;40;1m This installation may take some time\033[0m"
-echo -e "\033[32;40;1m Press Ctrl+C to stop\033[0m"
-sleep 4
-php index.php update-nodes
-php index.php refine-nodes
-echo "-------------------------"
-read -p $'\033[32;1mEnter an email address to bomb: \033[0m' mail
-echo "-------------------------"
-php index.php start-bombing $mail
-
-elif [[ $islem == 12 || $islem == 012 ]]; then
-clear
-echo -e "\033[32;40;1m Installing dorks-eye...\033[0m"
-sleep 3
-cd Tools
-git clone https://github.com/BullsEye0/dorks-eye.git
-cd dorks-eye
-pip install -r requirements.txt
-python3 dorks-eye.py
-
-elif [[ $islem == 13 || $islem == 013 ]]; then
-clear
-echo -e "\033[32;40;1m Installing Subscan...\033[0m"
-sleep 3
-cd Tools
-git clone https://github.com/zidansec/subscan
-cd subscan
-read -p $'\033[32;1mEnter a domain (e.g., example.com): \033[0m' sc
-./subscan $sc
-
-elif [[ $islem == 14 || $islem == 014 ]]; then
-clear
-echo -e "\033[32;40;1m Installing DARKARMY...\033[0m"
-sleep 3
-cd Tools
-pkg install git
-pkg install python2
-apt install git
-apt install python2
-git clone https://github.com/D4RK-4RMY/DARKARMY
-cd DARKARMY
-chmod +x darkarmy.py
-python2 darkarmy.py
-
-elif [[ $islem == 15 || $islem == 015 ]]; then
-clear
-echo -e "\033[32;40;1m Installing Facebash...\033[0m"
-sleep 3
-cd Tools
-git clone https://github.com/fu8uk1/facebash
-cd facebash
-bash install.sh
-chmod +x facebash.sh
-tor
-sudo ./facebash.sh
-
-elif [[ $islem == 16 || $islem == 016 ]]; then
-clear
-echo -e "\033[32;40;1m Installing Requirements & Update...\033[0m"
-sleep 5
-pkg install git -y
-pkg install python python3 -y
-pkg install pip pip3 -y
-pkg install curl -y
-apt update
-apt upgrade -y
-clear
-echo -e "\033[32;40;1m Update completed...\033[0m"
-sleep 3
-bash alhack.sh
-
-elif [[ $islem == 17 || $islem == 017 ]]; then
-clear
-echo -e "\033[32;40;1m Uninstalling downloaded tools...\033[0m"
-sleep 3 
-rm -rf Tools
-bash alhack.sh
-
-else   
+# انیمیشن باینری پویا
+binary_intro() {
     clear
-    echo -e '\033[31;40;1m Invalid option entered\033[0m'
-    sleep 1
-    clear 
-    bash alhack.sh
-fi
+    local text="Tim EdinborgTM taghdim mikonad"
+    local binary=$(text_to_binary "$text")
+    local lines=()
+
+    # تقسیم باینری به خطوط
+    IFS=' ' read -ra bits <<< "$binary"
+    local line=""
+    local count=0
+    for bit in "${bits[@]}"; do
+        line+="$bit "
+        ((count++))
+        if (( count % 8 == 0 )); then
+            lines+=("$line")
+            line=""
+        fi
+    done
+    [[ -n $line ]] && lines+=("$line")
+
+    # نمایش متحرک
+    for _ in {1..4}; do
+        clear
+        echo
+        echo -e "${CYAN}╔═══════════════════════════════════════════════════════╗${NC}"
+        for line in "${lines[@]}"; do
+            echo -e "${CYAN}║${WHITE}  $line${CYAN}║${NC}"
+        done
+        echo -e "${CYAN}╚═══════════════════════════════════════════════════════╝${NC}"
+        echo
+        echo -e "${YELLOW}                Tim EdinborgTM taghdim mikonad...${NC}"
+        sleep 0.7
+    done
+
+    # نمایش نهایی
+    clear
+    echo
+    echo -e "${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"
+    echo -e "${GREEN}║${WHITE}        Tim EdinborgTM taghdim mikonad...            ${GREEN}║${NC}"
+    echo -e "${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
+    echo
+    sleep 1.5
+}
+
+# اسپینر فقط برای نصب
+spinner() {
+    local pid=$1
+    local spin='|/-\'
+    while kill -0 $pid 2>/dev/null; do
+        for c in {0..3}; do
+            printf "${CYAN}%s${NC} " "${spin:$c:1}"
+            sleep 0.15
+            printf "\b\b"
+        done
+    done
+    printf "  \b\b"
+    echo -e "${GREEN}Done${NC}"
+}
+
+# منو ساده
+menu() {
+    local sym=(">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" "X" "?")
+    local txt=(
+        "Taghir khodkar IP" "RED_HAWK" "Fish Tool" "HackerPro" "IP Info"
+        "WebCam Hack" "DDOS Attack" "VirusCrafter" "BadMod" "Info-Site"
+        "Gmail Bomber" "dorks-eye" "Subscan" "DARKARMY" "Facebash"
+        "Update & Req" "Pak kon Tools" "Chejoori estefade?"
+    )
+    clear
+    echo -e "${YELLOW}               ──── ${WHITE}EdinborgTM${YELLOW} ────${NC}"
+    echo -e "${CYAN}                    v5.0 ${GREEN}| CTRL+C: khorooj${NC}"
+    echo -e "${MAGENTA}╾──────────────────────────────────────────────────────────╼${NC}"
+    for i in {0..17}; do
+        printf "${WHITE}  [${GREEN}%02d${WHITE}] ${CYAN}%s${NC} %-20s" "$((i+1))" "${sym[$i]}" "${txt[$i]}"
+        (( i%2 == 1 )) && echo
+    done
+    echo
+    echo -e "${MAGENTA}╾──────────────────────────────────────────────────────────╼${NC}"
+}
+
+# ورودی تمیز
+read_option() {
+    printf "${GREEN}>> ${WHITE}Nomre gozine (01-18): ${NC}"
+    read islem
+    [[ ! $islem =~ ^[0-9]+$ ]] && islem=99
+    (( islem < 1 || islem > 18 )) && islem=99
+}
+
+# اجرای انیمیشن اولیه
+binary_intro
+
+# حلقه اصلی
+while true; do
+    menu
+    read_option
+
+    case $islem in
+        1|01)
+            clear; menu
+            echo -e "${GREEN}> Daram nasb AUTO-IP-CHANGER...${NC}"
+            mkdir -p Tools && cd Tools
+            sudo apt-get install -y tor >/dev/null 2>&1 &
+            spinner $!
+            pip3 install -q requests
+            git clone https://github.com/FDX100/Auto_Tor_IP_changer.git >/dev/null 2>&1 &
+            spinner $!
+            cd Auto_Tor_IP_changer
+            echo -e "${BLUE}Proxy: 127.0.0.1:9050${NC}"
+            python3 install.py
+            printf "${GREEN}Enter baraye bargasht...${NC}"; read
+            ;;
+        2|02)
+            clear; menu; echo -e "${GREEN}> Nasb RED_HAWK...${NC}"
+            mkdir -p Tools && cd Tools
+            git clone https://github.com/Tuhinshubhra/RED_HAWK >/dev/null 2>&1 &
+            spinner $!
+            cd RED_HAWK
+            php rhawk.php
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        3|03)
+            clear; menu; echo -e "${GREEN}> Nasb Fish Tool...${NC}"
+            mkdir -p Tools && cd Tools
+            git clone https://github.com/htr-tech/zphisher >/dev/null 2>&1 &
+            spinner $!
+            cd zphisher
+            bash zphisher.sh
+            printf "${GREEN}Enter baraye bargasht...${NC}"; read
+            ;;
+        4|04)
+            clear; menu; echo -e "${GREEN}> Nasb HackerPro...${NC}"
+            mkdir -p Tools && cd Tools
+            sudo apt update -y && sudo apt install -y git python2 >/dev/null 2>&1 &
+            spinner $!
+            git clone https://github.com/jaykali/hackerpro.git >/dev/null 2>&1 &
+            spinner $!
+            cd hackerpro && sudo bash install.sh >/dev/null 2>&1
+            python2 hackerpro.py
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        5|05)
+            clear; menu; echo -e "${GREEN}> Nasb IP Info...${NC}"
+            mkdir -p Tools && cd Tools
+            sudo apt install -y git curl >/dev/null 2>&1 &
+            spinner $!
+            git clone https://github.com/htr-tech/track-ip.git >/dev/null 2>&1 &
+            spinner $!
+            cd track-ip
+            bash trackip
+            printf "${GREEN}Enter baraye bargasht...${NC}"; read
+            ;;
+        6|06)
+            clear; menu; echo -e "${GREEN}> Nasb CamPhish...${NC}"
+            mkdir -p Tools && cd Tools
+            git clone https://github.com/techchipnet/CamPhish >/dev/null 2>&1 &
+            spinner $!
+            cd CamPhish
+            bash camphish.sh
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        7|07)
+            clear; menu; echo -e "${GREEN}> Nasb DDOS...${NC}"
+            mkdir -p Tools && cd Tools
+            git clone https://github.com/palahsu/DDoS-Ripper.git >/dev/null 2>&1 &
+            spinner $!
+            cd DDoS-Ripper
+            echo -e "${RED}Warning: IP ro hide kon!${NC}"
+            python3 DRipper.py
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        8|08)
+            clear; menu; echo -e "${GREEN}> Nasb VirusCrafter...${NC}"
+            mkdir -p Tools && cd Tools
+            git clone https://github.com/Devil-Tigers/TigerVirus >/dev/null 2>&1 &
+            spinner $!
+            cd TigerVirus
+            bash app.sh
+            printf "${GREEN}Enter baraye bargasht...${NC}"; read
+            ;;
+        9|09)
+            clear; menu; echo -e "${GREEN}> Nasb BadMod...${NC}"
+            mkdir -p Tools && cd Tools
+            sudo apt-get update -y && sudo apt-get install -y php php-curl >/dev/null 2>&1 &
+            spinner $!
+            git clone https://github.com/MrSqar-Ye/BadMod.git >/dev/null 2>&1 &
+            spinner $!
+            cd BadMod && chmod +x *
+            sudo php BadMod.php
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        10)
+            clear; menu; echo -e "${GREEN}> Nasb Info-Site...${NC}"
+            mkdir -p Tools && cd Tools
+            pkg install -y curl git >/dev/null 2>&1 &
+            spinner $!
+            git clone https://github.com/king-hacking/info-site.git >/dev/null 2>&1 &
+            spinner $!
+            cd info-site
+            bash info.sh
+            printf "${GREEN}Enter baraye bargasht...${NC}"; read
+            ;;
+        11)
+            clear; menu; echo -e "${GREEN}> Nasb Gmail Bomber...${NC}"
+            mkdir -p Tools && cd Tools
+            git clone https://github.com/juzeon/fast-mail-bomber.git >/dev/null 2>&1 &
+            spinner $!
+            cd fast-mail-bomber
+            mv config.example.php config.php
+            php index.php update-providers >/dev/null 2>&1
+            printf "${GREEN}Email hadeaf: ${NC}"; read mail
+            php index.php start-bombing "$mail"
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        12)
+            clear; menu; echo -e "${GREEN}> Nasb dorks-eye...${NC}"
+            mkdir -p Tools && cd Tools
+            git clone https://github.com/BullsEye0/dorks-eye.git >/dev/null 2>&1 &
+            spinner $!
+            cd dorks-eye
+            pip install -q -r requirements.txt
+            python3 dorks-eye.py
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        13)
+            clear; menu; echo -e "${GREEN}> Nasb Subscan...${NC}"
+            mkdir -p Tools && cd Tools
+            git clone https://github.com/zidansec/subscan >/dev/null 2>&1 &
+            spinner $!
+            cd subscan
+            printf "${GREEN}Domain: ${NC}"; read sc
+            ./subscan "$sc"
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        14)
+            clear; menu; echo -e "${GREEN}> Nasb DARKARMY...${NC}"
+            mkdir -p Tools && cd Tools
+            pkg install -y git python2 >/dev/null 2>&1 &
+            spinner $!
+            git clone https://github.com/D4RK-4RMY/DARKARMY >/dev/null 2>&1 &
+            spinner $!
+            cd DARKARMY && chmod +x darkarmy.py
+            python2 darkarmy.py
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        15)
+            clear; menu; echo -e "${GREEN}> Nasb Facebash...${NC}"
+            mkdir -p Tools && cd Tools
+            git clone https://github.com/fu8uk1/facebash >/dev/null 2>&1 &
+            spinner $!
+            cd facebash
+            bash install.sh >/dev/null 2>&1
+            chmod +x facebash.sh
+            tor >/dev/null 2>&1 &
+            ./facebash.sh
+            printf "${GREEN}Enter baraye menoo...${NC}"; read
+            ;;
+        16)
+            clear; menu; echo -e "${GREEN}> Update va niazha...${NC}"
+            pkg install -y git python python3 pip pip3 curl >/dev/null 2>&1
+            sudo apt update -y && sudo apt upgrade -y >/dev/null 2>&1 &
+            spinner $!
+            echo -e "${GREEN}Done Update shod!${NC}"
+            sleep 1
+            ;;
+        17)
+            clear; menu; echo -e "${RED}X Pak kardane Tools...${NC}"
+            rm -rf Tools
+            echo -e "${GREEN}Done Hamash pak shod!${NC}"
+            sleep 2
+            ;;
+        18)
+            clear; menu
+            cat <<'HELP'
+? Rahnama:
+   1. Nomre gozine ro vared kon.
+   2. Sabr kon ta nasb tamoom beshe.
+   3. Baraye DDOS ya Virus: VPN ya Tor estefade kon.
+   4. Baraye khorooj: CTRL+C
+   Warning: Faghat baraye amoozeshi!
+HELP
+            printf "${GREEN}Enter baraye bargasht...${NC}"; read
+            ;;
+        99|*)
+            clear
+            echo -e "${RED}Error: Gozine eshtebah! 01-18 vared kon.${NC}"
+            sleep 2
+            ;;
+    esac
+done
