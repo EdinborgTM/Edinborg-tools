@@ -88,18 +88,18 @@ spinner() {
 
 # منو ساده
 menu() {
-    local sym=(">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" ">" "X" "?")
+    local sym=(">" ">" ">" ">" ">" ">" ">" ">" ">" ">" "X" "?")
     local txt=(
-        "Taghir khodkar IP" "RED_HAWK" "Fish Tool" "HackerPro" "IP Info"
-        "WebCam Hack" "DDOS Attack" "VirusCrafter" "BadMod" "Info-Site"
-        "Gmail Bomber" "dorks-eye" "Subscan" "DARKARMY" "Facebash"
-        "Update & Req" "Pak kon Tools" "Chejoori estefade?"
+        "Taghir khodkar IP" "HackerPro" "IP Info"
+        "WebCam Hack" "VirusCrafter" "BadMod"
+        "Info-Site" "Subscan" "Update & Req"
+        "Pak kon Tools" "Chejoori estefade?"
     )
     clear
     echo -e "${YELLOW}               ──── ${WHITE}EdinborgTM${YELLOW} ────${NC}"
     echo -e "${CYAN}                    v5.0 ${GREEN}| CTRL+C: khorooj${NC}"
     echo -e "${MAGENTA}╾──────────────────────────────────────────────────────────╼${NC}"
-    for i in {0..17}; do
+    for i in {0..10}; do
         printf "${WHITE}  [${GREEN}%02d${WHITE}] ${CYAN}%s${NC} %-20s" "$((i+1))" "${sym[$i]}" "${txt[$i]}"
         (( i%2 == 1 )) && echo
     done
@@ -109,10 +109,10 @@ menu() {
 
 # ورودی تمیز
 read_option() {
-    printf "${GREEN}>> ${WHITE}Nomre gozine (01-18): ${NC}"
+    printf "${GREEN}>> ${WHITE}Nomre gozine (01-11): ${NC}"
     read islem
     [[ ! $islem =~ ^[0-9]+$ ]] && islem=99
-    (( islem < 1 || islem > 18 )) && islem=99
+    (( islem < 1 || islem > 11 )) && islem=99
 }
 
 # اجرای انیمیشن اولیه
@@ -139,24 +139,6 @@ while true; do
             printf "${GREEN}Enter baraye bargasht...${NC}"; read
             ;;
         2|02)
-            clear; menu; echo -e "${GREEN}> Nasb RED_HAWK...${NC}"
-            mkdir -p Tools && cd Tools
-            git clone https://github.com/Tuhinshubhra/RED_HAWK >/dev/null 2>&1 &
-            spinner $!
-            cd RED_HAWK
-            php rhawk.php
-            printf "${GREEN}Enter baraye menoo...${NC}"; read
-            ;;
-        3|03)
-            clear; menu; echo -e "${GREEN}> Nasb Fish Tool...${NC}"
-            mkdir -p Tools && cd Tools
-            git clone https://github.com/htr-tech/zphisher >/dev/null 2>&1 &
-            spinner $!
-            cd zphisher
-            bash zphisher.sh
-            printf "${GREEN}Enter baraye bargasht...${NC}"; read
-            ;;
-        4|04)
             clear; menu; echo -e "${GREEN}> Nasb HackerPro...${NC}"
             mkdir -p Tools && cd Tools
             sudo apt update -y && sudo apt install -y git python2 >/dev/null 2>&1 &
@@ -167,7 +149,7 @@ while true; do
             python2 hackerpro.py
             printf "${GREEN}Enter baraye menoo...${NC}"; read
             ;;
-        5|05)
+        3|03)
             clear; menu; echo -e "${GREEN}> Nasb IP Info...${NC}"
             mkdir -p Tools && cd Tools
             sudo apt install -y git curl >/dev/null 2>&1 &
@@ -178,7 +160,7 @@ while true; do
             bash trackip
             printf "${GREEN}Enter baraye bargasht...${NC}"; read
             ;;
-        6|06)
+        4|04)
             clear; menu; echo -e "${GREEN}> Nasb CamPhish...${NC}"
             mkdir -p Tools && cd Tools
             git clone https://github.com/techchipnet/CamPhish >/dev/null 2>&1 &
@@ -187,17 +169,7 @@ while true; do
             bash camphish.sh
             printf "${GREEN}Enter baraye menoo...${NC}"; read
             ;;
-        7|07)
-            clear; menu; echo -e "${GREEN}> Nasb DDOS...${NC}"
-            mkdir -p Tools && cd Tools
-            git clone https://github.com/palahsu/DDoS-Ripper.git >/dev/null 2>&1 &
-            spinner $!
-            cd DDoS-Ripper
-            echo -e "${RED}Warning: IP ro hide kon!${NC}"
-            python3 DRipper.py
-            printf "${GREEN}Enter baraye menoo...${NC}"; read
-            ;;
-        8|08)
+        5|05)
             clear; menu; echo -e "${GREEN}> Nasb VirusCrafter...${NC}"
             mkdir -p Tools && cd Tools
             git clone https://github.com/Devil-Tigers/TigerVirus >/dev/null 2>&1 &
@@ -206,7 +178,7 @@ while true; do
             bash app.sh
             printf "${GREEN}Enter baraye bargasht...${NC}"; read
             ;;
-        9|09)
+        6|06)
             clear; menu; echo -e "${GREEN}> Nasb BadMod...${NC}"
             mkdir -p Tools && cd Tools
             sudo apt-get update -y && sudo apt-get install -y php php-curl >/dev/null 2>&1 &
@@ -217,7 +189,7 @@ while true; do
             sudo php BadMod.php
             printf "${GREEN}Enter baraye menoo...${NC}"; read
             ;;
-        10)
+        7|07)
             clear; menu; echo -e "${GREEN}> Nasb Info-Site...${NC}"
             mkdir -p Tools && cd Tools
             pkg install -y curl git >/dev/null 2>&1 &
@@ -228,29 +200,7 @@ while true; do
             bash info.sh
             printf "${GREEN}Enter baraye bargasht...${NC}"; read
             ;;
-        11)
-            clear; menu; echo -e "${GREEN}> Nasb Gmail Bomber...${NC}"
-            mkdir -p Tools && cd Tools
-            git clone https://github.com/juzeon/fast-mail-bomber.git >/dev/null 2>&1 &
-            spinner $!
-            cd fast-mail-bomber
-            mv config.example.php config.php
-            php index.php update-providers >/dev/null 2>&1
-            printf "${GREEN}Email hadeaf: ${NC}"; read mail
-            php index.php start-bombing "$mail"
-            printf "${GREEN}Enter baraye menoo...${NC}"; read
-            ;;
-        12)
-            clear; menu; echo -e "${GREEN}> Nasb dorks-eye...${NC}"
-            mkdir -p Tools && cd Tools
-            git clone https://github.com/BullsEye0/dorks-eye.git >/dev/null 2>&1 &
-            spinner $!
-            cd dorks-eye
-            pip install -q -r requirements.txt
-            python3 dorks-eye.py
-            printf "${GREEN}Enter baraye menoo...${NC}"; read
-            ;;
-        13)
+        8|08)
             clear; menu; echo -e "${GREEN}> Nasb Subscan...${NC}"
             mkdir -p Tools && cd Tools
             git clone https://github.com/zidansec/subscan >/dev/null 2>&1 &
@@ -260,30 +210,7 @@ while true; do
             ./subscan "$sc"
             printf "${GREEN}Enter baraye menoo...${NC}"; read
             ;;
-        14)
-            clear; menu; echo -e "${GREEN}> Nasb DARKARMY...${NC}"
-            mkdir -p Tools && cd Tools
-            pkg install -y git python2 >/dev/null 2>&1 &
-            spinner $!
-            git clone https://github.com/D4RK-4RMY/DARKARMY >/dev/null 2>&1 &
-            spinner $!
-            cd DARKARMY && chmod +x darkarmy.py
-            python2 darkarmy.py
-            printf "${GREEN}Enter baraye menoo...${NC}"; read
-            ;;
-        15)
-            clear; menu; echo -e "${GREEN}> Nasb Facebash...${NC}"
-            mkdir -p Tools && cd Tools
-            git clone https://github.com/fu8uk1/facebash >/dev/null 2>&1 &
-            spinner $!
-            cd facebash
-            bash install.sh >/dev/null 2>&1
-            chmod +x facebash.sh
-            tor >/dev/null 2>&1 &
-            ./facebash.sh
-            printf "${GREEN}Enter baraye menoo...${NC}"; read
-            ;;
-        16)
+        9|09)
             clear; menu; echo -e "${GREEN}> Update va niazha...${NC}"
             pkg install -y git python python3 pip pip3 curl >/dev/null 2>&1
             sudo apt update -y && sudo apt upgrade -y >/dev/null 2>&1 &
@@ -291,13 +218,13 @@ while true; do
             echo -e "${GREEN}Done Update shod!${NC}"
             sleep 1
             ;;
-        17)
+        10)
             clear; menu; echo -e "${RED}X Pak kardane Tools...${NC}"
             rm -rf Tools
             echo -e "${GREEN}Done Hamash pak shod!${NC}"
             sleep 2
             ;;
-        18)
+        11)
             clear; menu
             cat <<'HELP'
 ? Rahnama:
@@ -305,13 +232,12 @@ while true; do
    2. Sabr kon ta nasb tamoom beshe.
    3. Baraye DDOS ya Virus: VPN ya Tor estefade kon.
    4. Baraye khorooj: CTRL+C
-   Warning: Faghat baraye amoozeshi!
 HELP
             printf "${GREEN}Enter baraye bargasht...${NC}"; read
             ;;
         99|*)
             clear
-            echo -e "${RED}Error: Gozine eshtebah! 01-18 vared kon.${NC}"
+            echo -e "${RED}Error: Gozine eshtebah! 01-11 vared kon.${NC}"
             sleep 2
             ;;
     esac
